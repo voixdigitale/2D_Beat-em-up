@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-11-15T14:55:33.865Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="dgZfVWERbfx2aaMAFMbI" version="22.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-15T15:05:46.905Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="C3NnkwJ4LERk6vPlsoVD" version="22.1.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1434" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -280,6 +280,33 @@
         </mxCell>
         <mxCell id="OidEc1CgMwrVslhreNSF-119" value="+ _radius: float" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="OidEc1CgMwrVslhreNSF-110">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="OidEc1CgMwrVslhreNSF-123" value="&lt;b&gt;GameManager&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1040" y="496" width="220" height="226" as="geometry" />
+        </mxCell>
+        <mxCell id="OidEc1CgMwrVslhreNSF-133" value="+ _player: Player" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OidEc1CgMwrVslhreNSF-123">
+          <mxGeometry y="30" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OidEc1CgMwrVslhreNSF-139" value="+ _score: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OidEc1CgMwrVslhreNSF-123">
+          <mxGeometry y="60" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OidEc1CgMwrVslhreNSF-138" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="OidEc1CgMwrVslhreNSF-123">
+          <mxGeometry y="90" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="OidEc1CgMwrVslhreNSF-134" value="+ OnStateEnter(PlayerState)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OidEc1CgMwrVslhreNSF-123">
+          <mxGeometry y="98" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OidEc1CgMwrVslhreNSF-136" value="+ OnStateExit(PlayerState)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OidEc1CgMwrVslhreNSF-123">
+          <mxGeometry y="128" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OidEc1CgMwrVslhreNSF-135" value="+ OnStateUpdate(PlayerState)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OidEc1CgMwrVslhreNSF-123">
+          <mxGeometry y="158" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OidEc1CgMwrVslhreNSF-131" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="OidEc1CgMwrVslhreNSF-123">
+          <mxGeometry y="188" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="OidEc1CgMwrVslhreNSF-137" value="+ GameState: enum" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OidEc1CgMwrVslhreNSF-123">
+          <mxGeometry y="196" width="220" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
