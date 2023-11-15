@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
-
 public class PlayerController : EntityController
 {
     private PlayerInput _playerInput;
+
+    protected new PlayerView _view {
+        get => base._view as PlayerView;
+        set => base._view = value;
+    }
 
     protected override void Awake()
     {
@@ -19,5 +19,12 @@ public class PlayerController : EntityController
     protected override void GatherInput()
     {
         _frameInput = _playerInput.FrameInput;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        _view.IsMoving = _movement.IsMoving();
     }
 }

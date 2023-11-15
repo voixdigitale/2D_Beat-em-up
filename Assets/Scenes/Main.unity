@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 177081379}
   - component: {fileID: 177081380}
+  - component: {fileID: 177081381}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -196,7 +197,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -1167452521, guid: 2964f03642bed4c78a22b3db2f082839, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -207,6 +208,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &177081381
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177081378}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37e9b3acd237a314f9fe662b0988dacf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &180304307
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +533,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.062021732, y: -0.03999996, z: -10}
+  m_LocalPosition: {x: 0.06167388, y: -0.03999996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -588,7 +610,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000bd81588a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -745,73 +767,6 @@ PolygonCollider2D:
       - {x: 36.4, y: -1.2}
       - {x: 36.4, y: 1.2}
   m_UseDelaunayMesh: 0
---- !u!1 &887081508
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 887081509}
-  - component: {fileID: 887081510}
-  m_Layer: 7
-  m_Name: Shadow Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &887081509
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887081508}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1159492899}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!70 &887081510
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887081508}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.19887435, y: 0.0038737797}
-  m_Size: {x: 0.07126285, y: 0.23808406}
-  m_Direction: 0
 --- !u!1 &1095178431
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +848,7 @@ GameObject:
   - component: {fileID: 1159492900}
   - component: {fileID: 1159492905}
   - component: {fileID: 1159492904}
+  - component: {fileID: 1159492906}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -916,7 +872,6 @@ Transform:
   - {fileID: 177081379}
   - {fileID: 2014284309}
   - {fileID: 1254486818}
-  - {fileID: 887081509}
   m_Father: {fileID: 1534236133}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1159492900
@@ -967,6 +922,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec16edd17dcd8e9498db62c880c8efb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _teamID: 0
+  _healthPoints: 100
+  _movementSpeed: 1
+  _animator: {fileID: 177081381}
+  <View>k__BackingField: {fileID: 1159492900}
+  <Controller>k__BackingField: {fileID: 1159492901}
 --- !u!50 &1159492904
 Rigidbody2D:
   serializedVersion: 4
@@ -1006,7 +967,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8131cf8778ecc0e4e9c2ebe45a885431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+--- !u!114 &1159492906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159492898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed7aaadcb50b2244979cfdb06762274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1209278285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,8 +1087,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1973911107
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 518d36547498b49b6bf185e492200c8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1446,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5870917917290239854, guid: d715138dd8f5ab74a8d990525d1a5cc0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 5870917917290239854, guid: d715138dd8f5ab74a8d990525d1a5cc0, type: 3}
       propertyPath: m_LocalPosition.z

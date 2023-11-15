@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public abstract class EntityController : MonoBehaviour
 {
     protected FrameInput _frameInput;
-    private Movement _movement;
+    protected Entity _model;
+    protected Movement _movement;
+
+    protected EntityView _view;
 
     /// <summary>
     /// GatherInput NEEDS to be implemented to populate _frameInput!
@@ -16,6 +16,9 @@ public abstract class EntityController : MonoBehaviour
     protected virtual void Awake()
     {
         _movement = GetComponent<Movement>();
+        _model = GetComponent<Entity>();
+
+        _view = _model.View;
     }
 
     protected virtual void Update()
