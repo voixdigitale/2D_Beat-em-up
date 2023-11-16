@@ -8,12 +8,21 @@ public class EnemyAI : MonoBehaviour
     public FrameInput FrameInput { get; private set; }
 
     [SerializeField] private Entity _target;
-    [SerializeField] private float _rangeRadius;
     [SerializeField] private LayerMask _playerLayer;
-    [SerializeField] private Collider2D _attackRangeCollider;
+    [SerializeField] private float _timeBeforeAttack;
+    [SerializeField] private int _minAttackTimes;
+    [SerializeField] private int _maxAttackTimes;
+    
 
-    private bool _inAttackRange;
+    private Attack _attack;
+    private bool _readyToAttack = false;
+    private float _attackTime;
+    private float _kickingAssDuration;
 
+    void Awake()
+    {
+        _attack = GetComponent<Attack>();
+    }
 
     void Update()
     {
@@ -30,20 +39,31 @@ public class EnemyAI : MonoBehaviour
     private Vector2 EvaluateDirection()
     {
         Vector2 direction = _target.transform.position - transform.position;
-        return _inAttackRange ? Vector2.zero : direction.normalized;
+        return _attack.InRange() ? Vector2.zero : direction.normalized;
     }
 
     private bool EvaluateAttack()
     {
-        return false;
-    }
+        if (!_attack.InRange()) return false;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        _inAttackRange = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D other) {
-        _inAttackRange = false;
+        if (!_readyToAttack)
+        {
+            _readyToAttack = true;
+            _attackTime = Time.time + _timeBeforeAttack;
+            _kickingAssDuration = _attackTime + Random.Range(_minAttackTimes, _maxAttackTimes + 1) * 0.4f;
+            return false;
+        }
+        else if (Time.time < _attackTime)
+        {
+            return false;
+        }
+        else if (Time.time < _kickingAssDuration) {
+            return true;
+        }
+        else
+        {
+            _readyToAttack = false;
+            return false;
+        }
     }
 }

@@ -263,8 +263,6 @@ MonoBehaviour:
   _healthPoints: 0
   _movementSpeed: 0.3
   _animator: {fileID: 1219668607651806603}
-  <Animation>k__BackingField: {fileID: 5108982436357524612}
-  <Controller>k__BackingField: {fileID: 6013621265720037297}
 --- !u!114 &4222075216899838000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackCooldown: 0.4
+  _attackRangeCollider: {fileID: 0}
 --- !u!114 &8214940611558575374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,11 +303,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _rangeRadius: 0.3
   _playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  _attackRangeCollider: {fileID: 7582633689649553719}
+  _timeBeforeAttack: 1
+  _minAttackTimes: 1
+  _maxAttackTimes: 1
 --- !u!114 &4930349445788725836
 MonoBehaviour:
   m_ObjectHideFlags: 0
