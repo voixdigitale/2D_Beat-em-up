@@ -1,3 +1,6 @@
+using System;
+using UnityEngine;
+
 public class PlayerController : EntityController
 {
     private PlayerInput _playerInput;

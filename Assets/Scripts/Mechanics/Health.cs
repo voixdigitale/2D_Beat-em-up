@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int _maxHealth;
+    [SerializeField] private int _maxHealth;
     private int _currentHealth;
     
-    public void Init(int maxHealth)
+    public void Start()
     {
-        _maxHealth = _currentHealth = maxHealth;
+        _maxHealth = _currentHealth;
     }
 }

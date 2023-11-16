@@ -19,14 +19,6 @@ public class Entity : MonoBehaviour
     [Tooltip("The animator component used to animate this Entity's sprites.")]
     [SerializeField] protected Animator _animator;
 
-    [field: Header("MVC Setup")]
-    [Tooltip("Drag here the code that will manage the visuals of this Entity.")]
-    [field: SerializeField]
-    public EntityAnimation Animation { get; private set; }
-    [Tooltip("Drag here the code that will act as the controller for this Entity.")]
-    [field: SerializeField]
-    public EntityController Controller { get; private set; }
-
     protected Health _health;
     protected Movement _movement;
 
@@ -34,9 +26,6 @@ public class Entity : MonoBehaviour
     {
         _health = GetComponent<Health>();
         _movement = GetComponent<Movement>();
-
-        _health.Init(_healthPoints);
-        _movement.Init(_movementSpeed, true);
     }
 
     /// <summary>

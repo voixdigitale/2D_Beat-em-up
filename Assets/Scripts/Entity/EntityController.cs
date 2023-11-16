@@ -19,8 +19,7 @@ public abstract class EntityController : MonoBehaviour
         _movement = GetComponent<Movement>();
         _attack = GetComponent<Attack>();
         _model = GetComponent<Entity>();
-
-        Animation = _model.Animation;
+        Animation = GetComponent<EntityAnimation>();
     }
 
     protected virtual void Update()
@@ -42,6 +41,5 @@ public abstract class EntityController : MonoBehaviour
 
     protected virtual void UpdateValues() {
         Animation.IsMoving = _movement.IsMoving();
-        Animation.IsAttacking = _attack.IsAttacking();
     }
 }

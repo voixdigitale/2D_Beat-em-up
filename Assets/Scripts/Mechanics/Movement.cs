@@ -3,8 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
+    [SerializeField] float _moveSpeed;
+    
     private bool _canMove = true;
-    private float _speed;
     private float _moveX = 0;
     private float _moveY = 0;
 
@@ -33,13 +34,12 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        Vector3 movement = new Vector2(_moveX * _speed, _moveY * _speed);
+        Vector3 movement = new Vector2(_moveX * _moveSpeed, _moveY * _moveSpeed);
         _rigidBody.velocity = movement;
     }
 
-    public void Init(float speed, bool canMove) {
-        _speed = speed;
-        _canMove = canMove;
+    public void Start() {
+        _canMove = true;
     }
 
     public void SetCurrentDirection(float currentXDirection, float currentYDirection) {
@@ -49,7 +49,8 @@ public class Movement : MonoBehaviour
 
     public void SetSpeed(float speed)
     {
-        _speed = speed;
+        _moveSpeed = speed;
     }
     public bool IsMoving() => new Vector2(_moveX, _moveY).magnitude > 0;
+    public float Orientation() => _moveX;
 }
