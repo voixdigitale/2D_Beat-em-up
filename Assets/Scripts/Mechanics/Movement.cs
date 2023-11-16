@@ -20,19 +20,17 @@ public class Movement : MonoBehaviour
         Move();
     }
     
-    private void AllowMove() {
+    public void AllowMove()
+    {
         _canMove = true;
     }
-    private void PreventMove() {
+    public void PreventMove() {
         _canMove = false;
     }
 
     private void Move()
     {
-        if (!_canMove)
-        {
-            return;
-        }
+        if (!_canMove) return;
 
         Vector3 movement = new Vector2(_moveX * _moveSpeed, _moveY * _moveSpeed);
         _rigidBody.velocity = movement;
@@ -51,6 +49,6 @@ public class Movement : MonoBehaviour
     {
         _moveSpeed = speed;
     }
-    public bool IsMoving() => new Vector2(_moveX, _moveY).magnitude > 0;
+    public bool IsMoving() => _rigidBody.velocity.magnitude > 0;
     public float Orientation() => _moveX;
 }

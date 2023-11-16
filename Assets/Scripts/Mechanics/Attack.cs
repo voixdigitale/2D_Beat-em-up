@@ -13,6 +13,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private Collider2D _attackRangeCollider;
 
     private Entity _entity;
+    private Movement _movement;
 
     private bool _canAttack = true;
     private bool _isAttacking = false;
@@ -21,6 +22,7 @@ public class Attack : MonoBehaviour
 
     private void Awake() {
         _entity = GetComponent<Entity>();
+        _movement = GetComponent<Movement>();
     }
     
     private void Update() {
