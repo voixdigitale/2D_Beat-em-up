@@ -2,9 +2,9 @@ public class PlayerController : EntityController
 {
     private PlayerInput _playerInput;
 
-    protected new PlayerView _view {
-        get => base._view as PlayerView;
-        set => base._view = value;
+    protected new PlayerAnimation Animation {
+        get => base.Animation as PlayerAnimation;
+        set => base.Animation = value;
     }
 
     protected override void Awake()

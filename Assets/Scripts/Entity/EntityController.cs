@@ -7,7 +7,7 @@ public abstract class EntityController : MonoBehaviour
     protected Movement _movement;
     protected Attack _attack;
 
-    protected EntityView _view;
+    protected EntityAnimation Animation;
 
     /// <summary>
     /// GatherInput NEEDS to be implemented to populate _frameInput!
@@ -20,7 +20,7 @@ public abstract class EntityController : MonoBehaviour
         _attack = GetComponent<Attack>();
         _model = GetComponent<Entity>();
 
-        _view = _model.View;
+        Animation = _model.Animation;
     }
 
     protected virtual void Update()
@@ -41,7 +41,7 @@ public abstract class EntityController : MonoBehaviour
     }
 
     protected virtual void UpdateValues() {
-        _view.IsMoving = _movement.IsMoving();
-        _view.IsAttacking = _attack.IsAttacking();
+        Animation.IsMoving = _movement.IsMoving();
+        Animation.IsAttacking = _attack.IsAttacking();
     }
 }

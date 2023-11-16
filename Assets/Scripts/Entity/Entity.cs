@@ -22,7 +22,7 @@ public class Entity : MonoBehaviour
     [field: Header("MVC Setup")]
     [Tooltip("Drag here the code that will manage the visuals of this Entity.")]
     [field: SerializeField]
-    public EntityView View { get; private set; }
+    public EntityAnimation Animation { get; private set; }
     [Tooltip("Drag here the code that will act as the controller for this Entity.")]
     [field: SerializeField]
     public EntityController Controller { get; private set; }
