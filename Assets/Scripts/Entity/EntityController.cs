@@ -5,6 +5,7 @@ public abstract class EntityController : MonoBehaviour
     protected FrameInput _frameInput;
     protected Entity _model;
     protected Movement _movement;
+    protected Attack _attack;
 
     protected EntityView _view;
 
@@ -16,6 +17,7 @@ public abstract class EntityController : MonoBehaviour
     protected virtual void Awake()
     {
         _movement = GetComponent<Movement>();
+        _attack = GetComponent<Attack>();
         _model = GetComponent<Entity>();
 
         _view = _model.View;
@@ -25,10 +27,21 @@ public abstract class EntityController : MonoBehaviour
     {
         GatherInput();
         Movement();
+        Attack();
+        UpdateValues();
     }
 
     protected virtual void Movement()
     {
         _movement.SetCurrentDirection(_frameInput.Move.x, _frameInput.Move.y);
+    }
+
+    protected virtual void Attack() {
+        _attack.SetAttacking(_frameInput.Attack);
+    }
+
+    protected virtual void UpdateValues() {
+        _view.IsMoving = _movement.IsMoving();
+        _view.IsAttacking = _attack.IsAttacking();
     }
 }

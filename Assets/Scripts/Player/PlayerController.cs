@@ -20,11 +20,4 @@ public class PlayerController : EntityController
     {
         _frameInput = _playerInput.FrameInput;
     }
-
-    protected override void Update()
-    {
-        base.Update();
-
-        _view.IsMoving = _movement.IsMoving();
-    }
 }

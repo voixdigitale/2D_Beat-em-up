@@ -2,6 +2,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(Attack))]
+[SelectionBase]
+
 public class Entity : MonoBehaviour
 {
     [Header("Basic Settings")]

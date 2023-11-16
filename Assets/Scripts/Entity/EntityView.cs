@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 public abstract class EntityView : MonoBehaviour
 {
     public bool IsMoving { get; set; }
+    public bool IsAttacking { get; set; }
 
     protected int _currentState;
     protected Entity _model;
@@ -42,6 +43,7 @@ public abstract class EntityView : MonoBehaviour
     protected virtual void RefreshProperties()
     {
         _animator.SetBool("IsMoving", IsMoving);
+        _animator.SetBool("IsAttacking", IsAttacking);
     }
 
 
