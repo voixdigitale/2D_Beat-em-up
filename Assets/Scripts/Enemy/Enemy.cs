@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    // This is an Enemy
+    public override void TakeHit(int teamId, GameObject hitSource)
+    {
+        Debug.Log("Enemy says : OUCH !");
+    }
 }

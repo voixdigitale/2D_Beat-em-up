@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &1219668607651806603
 Animator:
   serializedVersion: 5
@@ -259,8 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ad05a4ffd69b74dbb113d000fb3146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamID: 0
-  _healthPoints: 0
+  _teamID: 1
+  _healthPoints: 100
   _movementSpeed: 0.3
   _animator: {fileID: 1219668607651806603}
 --- !u!114 &4222075216899838000
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackCooldown: 0.4
-  _attackRangeCollider: {fileID: 0}
+  _attackRangeCollider: {fileID: 7582633689649553719}
 --- !u!114 &8214940611558575374
 MonoBehaviour:
   m_ObjectHideFlags: 0

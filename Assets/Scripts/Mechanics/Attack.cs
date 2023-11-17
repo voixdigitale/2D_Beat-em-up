@@ -19,12 +19,22 @@ public class Attack : MonoBehaviour
     private bool _isAttacking = false;
     private float _lastAttackTime;
     private bool _inAttackRange;
+    private List<Entity> _targetsInRange = new List<Entity>();
 
     private void Awake() {
         _entity = GetComponent<Entity>();
         _movement = GetComponent<Movement>();
     }
-    
+
+    void OnEnable()
+    {
+        OnAttack += CheckForHit;
+    }
+
+    void OnDisable() {
+        OnAttack -= CheckForHit;
+    }
+
     private void Update() {
         AttemptAttack();
     }
@@ -53,10 +63,37 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         _inAttackRange = true;
+        
+        Entity entityInRange = other.gameObject.GetComponentInParent<Entity>();
+        if (entityInRange.Team() != _entity.Team())
+        {
+            _targetsInRange.Add(entityInRange);
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerExit2D(Collider2D other)
+    {
         _inAttackRange = false;
+
+        Entity entityInRange = other.gameObject.GetComponentInParent<Entity>();
+        if (entityInRange?.Team() != _entity.Team() && _targetsInRange.Contains(entityInRange))
+        {
+            _targetsInRange.Remove(entityInRange);
+        }
+    }
+
+    private void CheckForHit(Entity sender)
+    {
+        foreach (Entity e in _targetsInRange)
+        {
+            float relativePosition = new Vector2(e.transform.position.x - transform.position.x, 0f).normalized.x;
+            float orientation = _entity.GetAnimator().transform.localScale.x;
+            if (relativePosition == orientation)
+            {
+                IHitable iHitable = e.GetComponent<IHitable>();
+                iHitable?.TakeHit(e.Team(), e.gameObject);
+            }
+        }
     }
 
     public bool InRange() => _inAttackRange;

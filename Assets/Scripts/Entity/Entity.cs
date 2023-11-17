@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Attack))]
 [SelectionBase]
 
-public class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour, IHitable
 {
     [Header("Basic Settings")]
     [Tooltip("TeamID identifies who can interact and damage this Entity.\nDefault:\n -1: Neutral\n  0: Friendly\n  1: Enemy")]
@@ -36,6 +36,8 @@ public class Entity : MonoBehaviour
         if (_movement != null)
             _movement.SetSpeed(_movementSpeed);
     }
+    public abstract void TakeHit(int teamId, GameObject hitSource);
 
     public Animator GetAnimator() => _animator;
+    public int Team() => _teamID;
 }
