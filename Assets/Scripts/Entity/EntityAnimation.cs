@@ -8,15 +8,17 @@ public abstract class EntityAnimation : MonoBehaviour
 {
     public bool IsMoving { get; set; }
 
-    protected Entity _model;
+    [SerializeField] private GameObject _hitVFX;
+
+    protected Entity _entity;
     protected Animator _animator;
     protected Attack _attack;
     protected Movement _movement;
 
     protected virtual void Awake()
     {
-        _model = GetComponent<Entity>();
-        _animator = _model.GetAnimator();
+        _entity = GetComponent<Entity>();
+        _animator = _entity.GetAnimator();
         _attack = GetComponent<Attack>();
         _movement = GetComponent<Movement>();
     }
@@ -24,11 +26,13 @@ public abstract class EntityAnimation : MonoBehaviour
     protected virtual void OnEnable()
     {
         _attack.OnAttack += AttackAnimation;
+        _entity.OnHit += HurtAnimation;
     }
     
     protected virtual void OnDisable()
     {
         _attack.OnAttack -= AttackAnimation;
+        _entity.OnHit -= HurtAnimation;
     }
 
 
@@ -44,9 +48,17 @@ public abstract class EntityAnimation : MonoBehaviour
 
     protected virtual void AttackAnimation(Entity sender)
     {
-        if (sender != _model) return;
+        if (sender != _entity) return;
 
         _animator.SetTrigger("Attack");
+    }
+
+    protected virtual void HurtAnimation(Entity sender)
+    {
+        if (sender != _entity) return;
+
+        _animator.SetTrigger("Hurt");
+        Instantiate(_hitVFX, new Vector2(transform.position.x, transform.position.y + .5f), Quaternion.identity);
     }
 
     private void CorrectSpriteOrientation() {

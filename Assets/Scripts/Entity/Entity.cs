@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
@@ -7,13 +8,11 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour, IHitable
 {
+    public Action<Entity> OnHit;
+
     [Header("Basic Settings")]
     [Tooltip("TeamID identifies who can interact and damage this Entity.\nDefault:\n -1: Neutral\n  0: Friendly\n  1: Enemy")]
     [SerializeField] protected int _teamID;
-    [Tooltip("The maximum health points of this Entity.")]
-    [SerializeField] protected int _healthPoints;
-    [Tooltip("How fast this entity moves.")]
-    [SerializeField] protected float _movementSpeed;
 
     [Header("Required Components")]
     [Tooltip("The animator component used to animate this Entity's sprites.")]
@@ -28,15 +27,10 @@ public abstract class Entity : MonoBehaviour, IHitable
         _movement = GetComponent<Movement>();
     }
 
-    /// <summary>
-    /// Editor-only, it updates the values if a game designer changes the inspector during Play mode
-    /// </summary>
-    private void OnValidate()
+    public virtual void TakeHit(int teamId, GameObject hitSource)
     {
-        if (_movement != null)
-            _movement.SetSpeed(_movementSpeed);
+        OnHit.Invoke(this);
     }
-    public abstract void TakeHit(int teamId, GameObject hitSource);
 
     public Animator GetAnimator() => _animator;
     public int Team() => _teamID;

@@ -8,8 +8,10 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 public class Attack : MonoBehaviour
 {
     public Action<Entity> OnAttack;
+    public Action<Entity> OnAttackAnimation;
 
     [SerializeField] private float _attackCooldown;
+    [SerializeField] private float _knockbackThrust = 2f;
     [SerializeField] private Collider2D _attackRangeCollider;
 
     private Entity _entity;
@@ -28,11 +30,11 @@ public class Attack : MonoBehaviour
 
     void OnEnable()
     {
-        OnAttack += CheckForHit;
+        OnAttackAnimation += CheckForHit;
     }
 
     void OnDisable() {
-        OnAttack -= CheckForHit;
+        OnAttackAnimation -= CheckForHit;
     }
 
     private void Update() {
@@ -91,10 +93,11 @@ public class Attack : MonoBehaviour
             if (relativePosition == orientation)
             {
                 IHitable iHitable = e.GetComponent<IHitable>();
-                iHitable?.TakeHit(e.Team(), e.gameObject);
+                iHitable?.TakeHit(e.Team(), sender.gameObject);
             }
         }
     }
 
     public bool InRange() => _inAttackRange;
+    public float GetKnockbackThrust() => _knockbackThrust;
 }

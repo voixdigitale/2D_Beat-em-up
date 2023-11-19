@@ -6,6 +6,8 @@ public class Player : Entity
 {
     public override void TakeHit(int teamId, GameObject hitSource)
     {
+        base.TakeHit(teamId, hitSource);
+
         Debug.Log("Player says: OUCH!");
     }
 }
