@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
         _canMove = true;
     }
     public void PreventMove() {
+        _rigidBody.velocity = Vector3.zero;
         _canMove = false;
     }
 
@@ -41,6 +42,9 @@ public class Movement : MonoBehaviour
     }
 
     public void SetCurrentDirection(float currentXDirection, float currentYDirection) {
+        if (!_canMove)
+            return;
+
         _moveX = currentXDirection;
         _moveY = currentYDirection;
     }

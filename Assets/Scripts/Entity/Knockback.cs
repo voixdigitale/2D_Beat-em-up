@@ -9,6 +9,7 @@ public class Knockback : MonoBehaviour {
     [SerializeField] private float _knockbackTime = .2f;
 
     private Movement _movement;
+    private Entity _entity;
 
     private Vector3 _hitDirection;
     private float _knockbackThrust;
@@ -18,6 +19,7 @@ public class Knockback : MonoBehaviour {
     private void Awake() {
         _rigidBody = GetComponent<Rigidbody2D>();
         _movement = GetComponent<Movement>();
+        _entity = GetComponent<Entity>();
     }
 
     private void OnEnable() {
@@ -51,6 +53,6 @@ public class Knockback : MonoBehaviour {
 
     private void StopKnockRoutine() {
         _rigidBody.velocity = Vector2.zero;
-        _movement.AllowMove();
+        if (_entity.CurrentHealth() > 0) _movement.AllowMove();
     }
 }

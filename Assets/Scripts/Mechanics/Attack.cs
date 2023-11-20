@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
@@ -11,6 +12,7 @@ public class Attack : MonoBehaviour
     public Action<Entity> OnAttackAnimation;
 
     [SerializeField] private float _attackCooldown;
+    [SerializeField] private int _damagePoints;
     [SerializeField] private float _knockbackThrust = 2f;
     [SerializeField] private Collider2D _attackRangeCollider;
 
@@ -31,20 +33,22 @@ public class Attack : MonoBehaviour
     void OnEnable()
     {
         OnAttackAnimation += CheckForHit;
+        Health.OnDeath += RefreshTargetList;
     }
 
     void OnDisable() {
         OnAttackAnimation -= CheckForHit;
+        Health.OnDeath -= RefreshTargetList;
     }
 
     private void Update() {
         AttemptAttack();
     }
 
-    private void AllowAttack() {
+    public void AllowAttack() {
         _canAttack = true;
     }
-    private void PreventAttack() {
+    public void PreventAttack() {
         _canAttack = false;
     }
 
@@ -67,7 +71,7 @@ public class Attack : MonoBehaviour
         _inAttackRange = true;
         
         Entity entityInRange = other.gameObject.GetComponentInParent<Entity>();
-        if (entityInRange.Team() != _entity.Team())
+        if (entityInRange.Team() != _entity.Team() && entityInRange.CurrentHealth() > 0)
         {
             _targetsInRange.Add(entityInRange);
         }
@@ -86,16 +90,24 @@ public class Attack : MonoBehaviour
 
     private void CheckForHit(Entity sender)
     {
-        foreach (Entity e in _targetsInRange)
+        foreach (Entity e in _targetsInRange.ToList())
         {
             float relativePosition = new Vector2(e.transform.position.x - transform.position.x, 0f).normalized.x;
             float orientation = _entity.GetAnimator().transform.localScale.x;
             if (relativePosition == orientation)
             {
                 IHitable iHitable = e.GetComponent<IHitable>();
-                iHitable?.TakeHit(e.Team(), sender.gameObject);
+                iHitable?.TakeHit(e.Team(), sender);
+
+                IDamageable iDamageable = e.GetComponent<IDamageable>();
+                iDamageable?.TakeDamage(e.Team(), _damagePoints);
+                
             }
         }
+    }
+
+    private void RefreshTargetList(Entity e) {
+        if(_targetsInRange.Contains(e)) _targetsInRange.Remove(e);
     }
 
     public bool InRange() => _inAttackRange;

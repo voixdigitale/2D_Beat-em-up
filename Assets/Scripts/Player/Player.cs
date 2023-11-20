@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    public override void TakeHit(int teamId, GameObject hitSource)
+    public override void TakeHit(int teamId, Entity hitSource)
     {
         base.TakeHit(teamId, hitSource);
 

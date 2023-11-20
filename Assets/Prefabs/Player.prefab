@@ -57,15 +57,15 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.31616205, y: -0.015448091}
-  m_Size: {x: 0.90973866, y: 1.6845385}
+  m_Offset: {x: 0.3161648, y: 0.017010925}
+  m_Size: {x: 0.9097331, y: 1.5546885}
   m_Direction: 0
 --- !u!1 &5834004993481147091
 GameObject:
@@ -165,7 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackCooldown: 0.5
-  _knockbackThrust: 2
+  _damagePoints: 15
+  _knockbackThrust: 1
   _attackRangeCollider: {fileID: 5556030605005917698}
 --- !u!114 &4531811634952719460
 MonoBehaviour:

@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 6013621265720037297}
   - component: {fileID: 5108982436357524612}
   - component: {fileID: 7133639823515942894}
+  - component: {fileID: 460866622664126106}
   - component: {fileID: 3344631752574520118}
   m_Layer: 8
   m_Name: Enemy
@@ -302,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackCooldown: 0.4
+  _damagePoints: 5
   _knockbackThrust: 2
   _attackRangeCollider: {fileID: 7582633689649553719}
 --- !u!114 &8214940611558575374
@@ -387,6 +389,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashTime: 0.1
+--- !u!114 &460866622664126106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3585368203581599157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564521decd78fa24780efe9fd02a3ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _disappearDelay: 3
 --- !u!50 &3344631752574520118
 Rigidbody2D:
   serializedVersion: 4

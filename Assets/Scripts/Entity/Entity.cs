@@ -27,11 +27,13 @@ public abstract class Entity : MonoBehaviour, IHitable
         _movement = GetComponent<Movement>();
     }
 
-    public virtual void TakeHit(int teamId, GameObject hitSource)
+    public virtual void TakeHit(int teamId, Entity hitSource)
     {
         OnHit.Invoke(this);
     }
 
     public Animator GetAnimator() => _animator;
     public int Team() => _teamID;
+
+    public int CurrentHealth() => _health.GetHP();
 }

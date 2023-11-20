@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Entity
+public class Enemy : Entity, IDamageable
 {
-    public override void TakeHit(int teamId, GameObject hitSource)
+    public override void TakeHit(int teamId, Entity hitSource)
     {
         base.TakeHit(teamId, hitSource);
 
@@ -13,5 +13,9 @@ public class Enemy : Entity
         GetComponent<Knockback>().GetKnockedBack(new Vector2(relativePosition, 0f), knockbackThrust);
 
         GetComponent<Flash>().StartFlash();
+    }
+
+    public void TakeDamage(int teamId, int damageAmount) {
+        _health.ReduceHealth(damageAmount);
     }
 }
