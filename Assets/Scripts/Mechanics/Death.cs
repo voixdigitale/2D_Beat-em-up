@@ -9,10 +9,13 @@ public class Death : MonoBehaviour {
     Movement _movement;
     Attack _attack;
 
+    private Rigidbody2D _rb;
+
     private void Awake() {
         _entity = GetComponent<Entity>();
         _movement = GetComponent<Movement>();
         _attack = GetComponent<Attack>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable() {
@@ -28,6 +31,7 @@ public class Death : MonoBehaviour {
 
         _movement.PreventMove();
         _attack.PreventAttack();
+        _rb.isKinematic = true;
 
         StartCoroutine(DeathCoroutine());
     }
