@@ -19,6 +19,8 @@ public class EnemyAI : MonoBehaviour
     private float _attackTime;
     private float _kickingAssDuration;
 
+    public void SetTarget(Entity target) => _target = target;
+
     void Awake()
     {
         _attack = GetComponent<Attack>();

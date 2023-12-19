@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class Attack : MonoBehaviour
 {
@@ -68,6 +67,8 @@ public class Attack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.GetComponentInParent<Entity>() == null) { return; }
+
         _inAttackRange = true;
         
         Entity entityInRange = other.gameObject.GetComponentInParent<Entity>();

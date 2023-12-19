@@ -18,4 +18,8 @@ public class Enemy : Entity, IDamageable
     public void TakeDamage(int teamId, int damageAmount) {
         _health.ReduceHealth(damageAmount);
     }
+
+    public void SetTarget(Entity target) {
+        GetComponent<EnemyAI>().SetTarget(target);
+    }
 }
